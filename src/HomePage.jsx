@@ -7,7 +7,7 @@ import {
 import SiteFooter from "./SiteFooter";
 import SiteUtilityBar from "./SiteUtilityBar";
 import SiteHeader from "./SiteHeader";
-import adVideo from "./assets/Ad Video 1 (2).mp4";
+import adVideo from "./assets/Ad Video 1-compressed.mp4";
 import crics1Img from "./assets/crics 1.jpeg";
 
 /* ------------------------------------------------------------------ */
@@ -159,8 +159,8 @@ function GroupCoachingCards() {
             key={g.group}
             onMouseEnter={() => setActiveGroup(g.group)}
             className={`rounded-2xl p-8 border transition-all duration-300 cursor-pointer ${isHighlighted
-                ? "bg-[#0A5DA6] border-[#0A5DA6] shadow-xl scale-[1.02]"
-                : "bg-white border-[#E4ECF3] shadow-sm"
+              ? "bg-[#0A5DA6] border-[#0A5DA6] shadow-xl scale-[1.02]"
+              : "bg-white border-[#E4ECF3] shadow-sm"
               }`}
           >
             <div
@@ -331,7 +331,7 @@ export default function HomePage() {
               Indoor Cricket Nets, Coaching & Summer<br className="hidden sm:inline" /> Camps in Columbus, OH
             </h1>
             <p className="ty-body text-white/90 text-base md:text-lg mb-8 max-w-xl mx-auto text-center">
-              Professional indoor cricket training, lane rentals, and high-performance coaching built for players at every stage.
+              Train, play, and book indoor cricket lanes at Crics 22Yards in Plain City, OH — serving Columbus, Dublin, Hilliard, Powell, Marysville, and nearby areas.
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <YellowButton href="#register">Enroll now</YellowButton>

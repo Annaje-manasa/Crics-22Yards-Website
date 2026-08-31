@@ -5,4 +5,5 @@ dist-ssr
 .vscode
 .DS_Store
 *.log
-*.mp4
+
+
