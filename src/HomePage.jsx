@@ -374,10 +374,10 @@ export default function HomePage() {
             sub="Every session at 22 Yards runs on four principles that turn raw enthusiasm into real cricket ability." dark />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-20 lg:gap-28 mb-16">
             {fuelSteps.map((s) => (
-              <div key={s.letter}>
+              <div key={s.letter} className="text-center flex flex-col items-center">
                 <div className="ty-display w-14 h-14 rounded-xl flex items-center justify-center font-bold text-xl mb-4" style={{ background: YELLOW, color: NAVY_DEEPER }}>{s.letter}</div>
-                <div className="ty-display text-white font-semibold uppercase text-sm mb-2 tracking-wide">{s.title}</div>
-                <p className="ty-body text-white/70 text-sm leading-relaxed">{s.text}</p>
+                <div className="ty-display text-white font-semibold uppercase text-sm mb-2 tracking-wide text-center">{s.title}</div>
+                <p className="ty-body text-white/70 text-sm leading-relaxed text-center">{s.text}</p>
               </div>
             ))}
           </div>
