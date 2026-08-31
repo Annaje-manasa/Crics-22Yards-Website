@@ -9,6 +9,7 @@ import SiteUtilityBar from "./SiteUtilityBar";
 import SiteHeader from "./SiteHeader";
 import adVideo from "./assets/Ad Video 1-compressed.mp4";
 import crics1Img from "./assets/crics 1.jpeg";
+import sachinImg from "./assets/sachin.png";
 
 /* ------------------------------------------------------------------ */
 /*  Design tokens — sampled from the reference site                    */
@@ -147,7 +148,7 @@ function GroupCoachingCards() {
   const groups = [
     { group: "U11", level: "Basic", text: "No previous cricket experience required." },
     { group: "U13", level: "Intermediate", text: "For players with basic cricket experience." },
-    { group: "U15", level: "Advanced", text: "For skilled and developing competitive cricketers." },
+    { group: "U17", level: "Advanced", text: "For skilled and developing competitive cricketers." },
   ];
 
   return (
@@ -340,7 +341,7 @@ export default function HomePage() {
             <div className="h-px bg-white/20 mb-6 w-full max-w-xl mx-auto" />
             <div className="ty-body flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-white/90 text-sm">
               <a href="tel:+16149841453" className="flex items-center gap-2"><Phone size={15} style={{ color: YELLOW }} /> +1 614-984-1453</a>
-              <span className="flex items-center gap-2"><MapPin size={15} style={{ color: YELLOW }} /> 9525 OH-161, Plain City, OH 43064 · Get directions</span>
+              <span className="flex items-center gap-2"><MapPin size={15} style={{ color: YELLOW }} /> 9525 OH-161, Plain City, OH 43064</span>
               <span className="flex items-center gap-2"><Clock size={15} style={{ color: YELLOW }} /> Open daily 7 AM – 11 PM</span>
             </div>
           </div>
@@ -368,10 +369,10 @@ export default function HomePage() {
 
       {/* ============================ FUEL METHODOLOGY ============================ */}
       <section style={{ background: NAVY }} className="py-20 mt-8">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-10 lg:px-14">
           <SectionHeading eyebrow="Our coaching methodology" title="FUEL to your dreams"
             sub="Every session at 22 Yards runs on four principles that turn raw enthusiasm into real cricket ability." dark />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-20 lg:gap-28 mb-16">
             {fuelSteps.map((s) => (
               <div key={s.letter}>
                 <div className="ty-display w-14 h-14 rounded-xl flex items-center justify-center font-bold text-xl mb-4" style={{ background: YELLOW, color: NAVY_DEEPER }}>{s.letter}</div>
@@ -388,77 +389,47 @@ export default function HomePage() {
       </section>
 
       {/* ============================ QUOTE ============================ */}
-      <section className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <p className="ty-body text-xl md:text-2xl font-medium leading-relaxed mb-4" style={{ color: NAVY }}>
-            "Cricket is not just a sport for me; it's a way of life, it's a way of thinking, it's a way of seeing the world."
-          </p>
-          <span className="ty-body text-xs font-bold tracking-widest uppercase" style={{ color: "#9AAEC0" }}>— Sachin Tendulkar</span>
+      <section className="py-16 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-6 items-center">
+          <div className="md:col-span-8 lg:col-span-9 text-center flex flex-col items-center">
+            <p className="ty-body text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed mb-4 text-center" style={{ color: NAVY }}>
+              "Cricket is not just a sport for me; it's a way of life, it's a way of thinking, it's a way of seeing the world."
+            </p>
+            <span className="ty-body text-xs font-bold tracking-widest uppercase text-center mt-2" style={{ color: "#9AAEC0" }}>— Sachin Tendulkar</span>
+          </div>
+          <div className="md:col-span-4 lg:col-span-3 flex justify-center md:justify-end">
+            <img src={sachinImg} alt="Sachin Tendulkar" className="max-h-[300px] md:max-h-[360px] w-auto object-contain drop-shadow-sm" loading="lazy" />
+          </div>
         </div>
       </section>
 
       {/* ============================ MORE THAN A GAME ============================ */}
       <section className="pb-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-stretch">
-          <div className="flex flex-col h-full">
-            <Eyebrow>Why cricket</Eyebrow>
-            <h2 className="ty-display text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4" style={{ color: NAVY }}>More than a game</h2>
-            <p className="ty-body mb-6" style={{ color: "#5B7A94" }}>Parents don't just get a better cricketer. They get a more capable, more confident young person.</p>
-            <div className="w-full mt-auto">
-              <img src={crics1Img} alt="Why cricket - More than a game" className="w-full h-auto max-h-[480px] object-cover rounded-2xl shadow-sm" loading="lazy" />
-            </div>
-          </div>
+        <div className="max-w-7xl mx-auto px-6">
+          <SectionHeading eyebrow="Why cricket" title="More than a game"
+            sub="Parents don't just get a better cricketer. They get a more capable, more confident young person." />
 
-          <div className="grid sm:grid-cols-2 gap-5">
-            {whyCricket.map((f) => (
-              <div key={f.title} className="border border-gray-100 rounded-xl p-6 shadow-sm">
-                <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-4" style={{ background: NAVY }}>
-                  <f.icon size={20} color="#fff" />
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="w-full">
+              <img src={crics1Img} alt="Why cricket - More than a game" className="w-full h-auto rounded-2xl shadow-sm" loading="lazy" />
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-x-5 gap-y-6">
+              {whyCricket.map((f) => (
+                <div key={f.title} className="border border-gray-100 rounded-xl p-6 shadow-sm">
+                  <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-4" style={{ background: NAVY }}>
+                    <f.icon size={20} color="#fff" />
+                  </div>
+                  <div className="ty-display font-semibold uppercase text-sm mb-2" style={{ color: NAVY }}>{f.title}</div>
+                  <p className="ty-body text-sm leading-relaxed" style={{ color: "#6B8399" }}>{f.text}</p>
                 </div>
-                <div className="ty-display font-semibold uppercase text-sm mb-2" style={{ color: NAVY }}>{f.title}</div>
-                <p className="ty-body text-sm leading-relaxed" style={{ color: "#6B8399" }}>{f.text}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ============================ TRAINING FOR EVERY STAGE ============================ */}
-      <section style={{ background: SKY_LIGHT }} className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading eyebrow="Our programs" title="Training for every stage"
-            sub="Every cricketer deserves the right coaching at the right stage — from a first grip on the bat to competitive match preparation." />
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                age: "Ages 5–16", title: "Junior development", text: "Build strong fundamentals, confidence, discipline, teamwork, and a lifelong passion for cricket.",
-                tags: ["Batting", "Bowling", "Fielding", "Game awareness", "Teamwork", "Discipline"], cta: "Explore junior program", img: IMG.juniorTraining
-              },
-              {
-                age: "Ages 17+", title: "Senior high-performance", text: "Advanced technical, tactical, physical, and mental preparation for competitive cricket.",
-                tags: ["Technical refinement", "Tactical awareness", "Fitness", "Mental conditioning", "Match preparation"], cta: "Explore high-performance", img: IMG.battingAction
-              },
-            ].map((c) => (
-              <div key={c.title} className="bg-white rounded-2xl overflow-hidden shadow-sm">
-                <Photo src={c.img} alt={c.title} className="h-56 w-full rounded-none" />
-                <div className="p-7">
-                  <span className="ty-body inline-block text-xs font-bold px-3 py-1 rounded-full mb-3" style={{ background: YELLOW_SOFT, color: NAVY_DEEPER }}>{c.age}</span>
-                  <h3 className="ty-display text-xl font-bold uppercase mb-2" style={{ color: NAVY }}>{c.title}</h3>
-                  <p className="ty-body text-sm mb-4" style={{ color: "#6B8399" }}>{c.text}</p>
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    {c.tags.map((t) => (
-                      <span key={t} className="ty-body text-xs flex items-center gap-1 px-3 py-1 rounded-full" style={{ background: SKY_LIGHT, color: NAVY }}>
-                        <Check size={12} /> {t}
-                      </span>
-                    ))}
-                  </div>
-                  <a href="#" className="ty-body inline-flex items-center gap-2 text-sm font-bold uppercase" style={{ color: NAVY }}>{c.cta} <ArrowRight size={15} /></a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ============================ FIND THE RIGHT GROUP ============================ */}
       <section className="py-20 bg-white">
@@ -476,27 +447,6 @@ export default function HomePage() {
       </section>
 
       {/* ============================ BUILT FOR SERIOUS CRICKET ============================ */}
-      <section style={{ background: SKY_LIGHT }} className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <SectionHeading eyebrow="Our facilities" title="Built for serious cricket"
-            sub="Twelve professional lanes, advanced machines, and everything around them that turns a practice session into real improvement." />
-          <div className="space-y-16">
-            {facilities.map((f, i) => (
-              <div key={f.title} className={`grid md:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
-                <Photo src={f.img} alt={f.title} className="h-64 w-full" />
-                <div>
-                  <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-4" style={{ background: YELLOW_SOFT }}>
-                    <f.icon size={20} style={{ color: NAVY_DEEPER }} />
-                  </div>
-                  <div className="ty-display text-xs font-bold mb-1" style={{ color: "#B7C7D4" }}>{f.num}</div>
-                  <h3 className="ty-display text-2xl font-bold uppercase mb-3" style={{ color: NAVY }}>{f.title}</h3>
-                  <p className="ty-body" style={{ color: "#6B8399" }}>{f.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ============================ YOUR LANE CTA ============================ */}
       <section id="book" style={{ background: NAVY }} className="py-20">
@@ -618,31 +568,13 @@ export default function HomePage() {
       </section>
 
       {/* ============================ MEZZANINE LOUNGE ============================ */}
-      <section style={{ background: NAVY }} className="py-20">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <Photo src={IMG.mezzanineLounge} alt="Mezzanine lounge overlooking the cricket lanes" className="h-80 w-full" />
-          <div>
-            <Eyebrow dark>Mezzanine lounge</Eyebrow>
-            <h2 className="ty-display text-3xl md:text-4xl font-bold uppercase text-white leading-tight mb-4">Take the party above the game.</h2>
-            <p className="ty-body text-white/80 mb-6">A premium private space for celebrations, corporate gatherings, and special events — with lounge seating and a view of the action below.</p>
-            <ul className="space-y-3 mb-8">
-              <CheckItem color={YELLOW}>Private upstairs lounge</CheckItem>
-              <CheckItem color={YELLOW}>Overlooks the cricket lanes</CheckItem>
-              <CheckItem color={YELLOW}>Lounge seating</CheckItem>
-              <CheckItem color={YELLOW}>Ideal for birthdays and corporate events</CheckItem>
-            </ul>
-            <YellowButton icon={Phone} href="tel:+16149841453">Host your event</YellowButton>
-          </div>
-        </div>
-      </section>
-
       {/* ============================ GALLERY ============================ */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
             <div>
               <Eyebrow>Gallery</Eyebrow>
-              <h2 className="ty-display text-3xl md:text-4xl font-bold uppercase mb-3" style={{ color: NAVY }}>Inside 22 Yards Dallas</h2>
+              <h2 className="ty-display text-3xl md:text-4xl font-bold uppercase mb-3" style={{ color: NAVY }}>Inside 22 Yards Columbus</h2>
               <p className="ty-body" style={{ color: "#5B7A94" }}>Training, players, coaches, the facility, and the events we host.</p>
             </div>
             <OutlineButton icon={ArrowRight}>View full gallery</OutlineButton>
@@ -705,7 +637,7 @@ export default function HomePage() {
                     <option>Select a group</option>
                     <option>U11 — Basic</option>
                     <option>U13 — Intermediate</option>
-                    <option>U15 — Advanced</option>
+                    <option>U17 — Advanced</option>
                   </select>
                 </div>
                 <div>
