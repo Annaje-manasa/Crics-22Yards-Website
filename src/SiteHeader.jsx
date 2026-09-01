@@ -97,8 +97,8 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
                 style={{
                   background: "#F6C915",
                   border: "none",
-                  borderRadius: 999,
-                  padding: "10px 22px",
+                  borderRadius: 8,
+                  padding: "8px 16px",
                   fontWeight: 700,
                   fontSize: 13,
                   color: "#053a68",
@@ -106,11 +106,11 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
                   textDecoration: "none",
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: 5,
+                  gap: 4,
                   whiteSpace: "nowrap",
                 }}
               >
-                📅 BOOK NOW
+                BOOK NOW ▾
               </a>
             </div>
 
@@ -132,7 +132,7 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
                 style={{
                   background: "#F6C915",
                   border: "none",
-                  borderRadius: 6,
+                  borderRadius: 8,
                   padding: "6px 12px",
                   fontWeight: 700,
                   fontSize: 11,
