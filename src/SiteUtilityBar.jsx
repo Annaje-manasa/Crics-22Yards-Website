@@ -7,11 +7,11 @@ export default function SiteUtilityBar() {
 
   return (
     <div
-      className="hidden md:block text-white"
+      className="block text-white border-b border-white/10"
       style={{
         background: "#0A5DA6",
         color: "#ffffff",
-        fontSize: "12px",
+        fontSize: "11px",
         fontFamily: "'Inter', sans-serif",
         lineHeight: "1.5",
         boxSizing: "border-box",
@@ -24,10 +24,11 @@ export default function SiteUtilityBar() {
           transition: color 0.15s ease !important;
           display: flex;
           align-items: center;
-          gap: 6px;
-          font-size: 12px;
+          gap: 5px;
+          font-size: 11px;
           font-family: 'Inter', sans-serif;
           font-weight: 400;
+          white-space: nowrap;
         }
         .subar-link-bold {
           color: #ffffff !important;
@@ -35,65 +36,37 @@ export default function SiteUtilityBar() {
           transition: color 0.15s ease !important;
           display: flex;
           align-items: center;
-          gap: 6px;
-          font-size: 12px;
+          gap: 5px;
+          font-size: 11px;
           font-family: 'Inter', sans-serif;
           font-weight: 600;
+          white-space: nowrap;
         }
         .subar-link:hover, .subar-link-bold:hover {
           color: #F6C915 !important;
         }
       `}</style>
 
-      <div
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          paddingLeft: "24px",
-          paddingRight: "24px",
-          paddingTop: "8px",
-          paddingBottom: "8px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          boxSizing: "border-box",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "24px", opacity: 0.9 }}>
-          <a
-            href={mapUrl}
-            className="subar-link"
-          >
-            <MapPin size={13} /> 9525 OH-161, Plain City, OH 43064
+      <div className="max-w-[1280px] mx-auto px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-5 opacity-95">
+          <a href={mapUrl} className="subar-link">
+            <MapPin size={12} /> 9525 OH-161, Plain City, OH 43064
           </a>
-          <a
-            href="mailto:contact@crics22yards.com"
-            className="subar-link"
-          >
-            <Mail size={13} /> contact@crics22yards.com
+          <a href="mailto:contact@crics22yards.com" className="subar-link">
+            <Mail size={12} /> contact@crics22yards.com
           </a>
-          <a
-            href={facebookUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="subar-link"
-          >
-            <Facebook size={13} /> Facebook
+          <a href={facebookUrl} className="subar-link">
+            <Facebook size={12} /> Facebook
           </a>
-          <a
-            href={instagramUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="subar-link"
-          >
-            <Instagram size={13} /> Instagram
+          <a href={instagramUrl} className="subar-link">
+            <Instagram size={12} /> Instagram
           </a>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "16px", fontWeight: 600 }}>
+        <div className="flex items-center gap-3 font-semibold">
           <a href="tel:+16149841453" className="subar-link-bold">
-            <Phone size={13} /> +1 614-984-1453
+            <Phone size={12} /> +1 614-984-1453
           </a>
-          <span style={{ fontSize: "12px", opacity: 0.7 }}>|</span>
+          <span style={{ fontSize: "11px", opacity: 0.7 }}>|</span>
           <a href="tel:+17134982155" className="subar-link-bold">
             (713) 498-2155
           </a>

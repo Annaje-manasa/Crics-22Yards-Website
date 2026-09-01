@@ -50,50 +50,29 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
       <SiteUtilityBar />
 
       {/* Main navigation header */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "16px 40px",
-          borderBottom: "1px solid #E2E8F0",
-          flexWrap: "wrap",
-          gap: 16,
-          background: "#fff",
-          boxSizing: "border-box",
-        }}
-      >
+      <div className="w-full flex items-center justify-between px-3 py-2 sm:px-6 lg:px-10 lg:py-4 border-b border-gray-200 bg-white box-border flex-nowrap">
         {/* Logo */}
-        <a href="#" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+        <a href="#" className="flex items-center gap-2 lg:gap-2.5 flex-shrink-0 text-none no-underline">
           <div
+            className="w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center font-extrabold text-sm lg:text-base text-[#F6C915] bg-[#0A5DA6] rounded-lg"
             style={{
-              width: 40,
-              height: 40,
-              background: "#0A5DA6",
-              color: "#F6C915",
-              borderRadius: 8,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: 800,
-              fontSize: 16,
               fontFamily: "'Inter', sans-serif",
             }}
           >
             22
           </div>
           <div style={{ lineHeight: 1.1 }}>
-            <div style={{ fontWeight: 700, fontSize: 17, color: "#0A5DA6", letterSpacing: 0.5, fontFamily: "'Inter', sans-serif" }}>
+            <div className="font-bold text-[14px] lg:text-[17px] text-[#0A5DA6] tracking-wide" style={{ fontFamily: "'Inter', sans-serif" }}>
               CRICS 22 YARDS
             </div>
-            <div style={{ fontSize: 10, letterSpacing: 2, color: "#9AAEC0", fontFamily: "'Inter', sans-serif" }}>COLUMBUS</div>
+            <div className="text-[8px] lg:text-[10px] tracking-[0.2em] text-[#9AAEC0] font-semibold" style={{ fontFamily: "'Inter', sans-serif" }}>COLUMBUS</div>
           </div>
         </a>
 
         {shouldShowNavLinks && (
           <>
-            {/* Nav Links & Book Now Button */}
-            <div style={{ display: "flex", gap: 22, flexWrap: "wrap", alignItems: "center" }} className="hidden lg:flex">
+            {/* Desktop Nav Links & Book Now Button */}
+            <div className="hidden lg:flex items-center gap-5 xl:gap-6 flex-wrap">
               {navLinks.map((link) => {
                 const href = link === "HOME" ? "#" : link === "ABOUT US" ? "#about" : link === "COACHING" ? "#coaching" : link === "LANE RENTALS" ? "#lane-rentals" : link === "SPECIAL EVENTS" ? "#special-events" : link === "SUMMER CAMP" ? "#summer-camp" : link === "CONTACT US" ? "#contact" : link === "REGISTRATION" ? "#registration" : "#";
                 const isActive = activePage.toUpperCase() === link;
@@ -119,15 +98,15 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
                   background: "#F6C915",
                   border: "none",
                   borderRadius: 999,
-                  padding: "8px 16px",
+                  padding: "10px 22px",
                   fontWeight: 700,
-                  fontSize: 12,
+                  fontSize: 13,
                   color: "#053a68",
                   cursor: "pointer",
                   textDecoration: "none",
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: 4,
+                  gap: 5,
                   whiteSpace: "nowrap",
                 }}
               >
@@ -135,52 +114,60 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
               </a>
             </div>
 
-            {/* Mobile Toggle */}
-            <button
-              className="lg:hidden p-2 text-[#0A5DA6] font-bold cursor-pointer text-lg"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
-            >
-              {menuOpen ? "✕" : "☰"}
-            </button>
+            {/* Mobile Header Actions (Menu bar in middle, Book Now on right like Image 2) */}
+            <div className="flex lg:hidden items-center justify-between flex-1 ml-2">
+              {/* Menu bar in middle */}
+              <button
+                className="p-1 text-[#0A5DA6] font-bold cursor-pointer text-2xl mx-auto"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle menu"
+              >
+                {menuOpen ? "✕" : "☰"}
+              </button>
+
+              {/* Book Now on rightside */}
+              <a
+                href="#book"
+                className="cu-btn-yellow flex-shrink-0"
+                style={{
+                  background: "#F6C915",
+                  border: "none",
+                  borderRadius: 6,
+                  padding: "6px 12px",
+                  fontWeight: 700,
+                  fontSize: 11,
+                  color: "#053a68",
+                  cursor: "pointer",
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 3,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                BOOK NOW ▾
+              </a>
+            </div>
           </>
         )}
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (Centered links like Image 2) */}
       {shouldShowNavLinks && menuOpen && (
-        <div className="lg:hidden border-t border-gray-100 px-6 py-4 flex flex-col gap-3 bg-white">
+        <div className="lg:hidden border-t border-gray-100 py-4 flex flex-col items-center bg-white">
           {navLinks.map((link) => {
             const href = link === "HOME" ? "#" : link === "ABOUT US" ? "#about" : link === "COACHING" ? "#coaching" : link === "LANE RENTALS" ? "#lane-rentals" : link === "SPECIAL EVENTS" ? "#special-events" : link === "SUMMER CAMP" ? "#summer-camp" : link === "CONTACT US" ? "#contact" : link === "REGISTRATION" ? "#registration" : "#";
             return (
               <a
                 key={link}
                 href={href}
-                className="text-sm font-bold uppercase text-[#0A5DA6] no-underline py-1"
+                className="w-48 text-center text-xs font-bold uppercase text-[#0A5DA6] no-underline py-2.5 border-b border-gray-100 last:border-b-0 tracking-wider hover:text-[#053a68] transition-colors"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {link}
               </a>
             );
           })}
-          <a
-            href="#book"
-            className="cu-btn-yellow mt-2 w-full text-center"
-            style={{
-              background: "#F6C915",
-              border: "none",
-              borderRadius: 999,
-              padding: "10px 22px",
-              fontWeight: 700,
-              fontSize: 13,
-              color: "#053a68",
-              cursor: "pointer",
-              textDecoration: "none",
-              display: "block",
-            }}
-          >
-            📅 BOOK NOW
-          </a>
         </div>
       )}
     </header>

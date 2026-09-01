@@ -94,8 +94,6 @@ function SocialIcon({ href, children }) {
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noreferrer"
       style={{
         width: 32,
         height: 32,
