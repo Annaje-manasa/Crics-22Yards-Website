@@ -24,11 +24,31 @@ export default function App() {
 
   const [page, setPage] = useState(getPage);
 
+  const resetTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
   useEffect(() => {
-    const handleHashChange = () => setPage(getPage());
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    resetTop();
+  }, []);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setPage(getPage());
+      resetTop();
+    };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  useEffect(() => {
+    resetTop();
+  }, [page]);
 
   if (page === 'about') return <AboutPage />;
   if (page === 'coaching') return <CoachingPage />;

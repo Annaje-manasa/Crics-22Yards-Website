@@ -62,8 +62,6 @@ export default function SiteUtilityBar() {
         <div style={{ display: "flex", alignItems: "center", gap: "24px", opacity: 0.9 }}>
           <a
             href={mapUrl}
-            target="_blank"
-            rel="noreferrer"
             className="subar-link"
           >
             <MapPin size={13} /> 9525 OH-161, Plain City, OH 43064

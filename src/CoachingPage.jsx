@@ -185,7 +185,7 @@ export default function CoachingPage() {
       </section>
 
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
           <div>
             <Eyebrow>Professional Cricket Coaching Programs</Eyebrow>
             <h2 className="ty-display text-2xl md:text-3xl font-bold mb-6" style={{ color: NAVY }}>
@@ -207,9 +207,9 @@ export default function CoachingPage() {
             <YellowButton href="#register">Schedule a Tour</YellowButton>
           </div>
 
-          <div className="flex flex-col gap-0 rounded-2xl overflow-hidden shadow-lg">
-            <img src={crics1Img} alt="Coach and junior player" className="w-full h-auto object-contain bg-[#084882]" loading="lazy" />
-            <div className="p-8 text-center" style={{ background: NAVY }}>
+          <div className="flex flex-col gap-0 rounded-2xl overflow-hidden shadow-lg h-fit self-start">
+            <img src={crics1Img} alt="Coach and junior player" className="w-full h-auto object-cover" loading="lazy" />
+            <div className="p-6 md:p-8 text-center" style={{ background: NAVY }}>
               <p className="ty-display text-white text-xl md:text-2xl font-bold uppercase leading-snug mb-3">
                 Train Smarter. Play Harder. Achieve More.
               </p>

@@ -345,17 +345,8 @@ export default function SpecialEvents() {
       </div>
 
       {/* Register now */}
-      <div style={{ background: "#F4F7FC", padding: "64px 40px" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "0.85fr 1.15fr",
-            gap: 48,
-            maxWidth: 1200,
-            margin: "0 auto",
-            alignItems: "center",
-          }}
-        >
+      <div className="bg-[#F4F7FC] px-5 py-10 md:px-10 md:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-8 lg:gap-12 max-w-[1200px] mx-auto items-center">
           <div>
             <h2 className="display-font" style={{ fontSize: 32, color: COLORS.yellowDark, margin: 0 }}>
               REGISTER NOW
@@ -374,113 +365,6 @@ export default function SpecialEvents() {
 
       {/* Footer */}
       <SiteFooter />
-      {false && <footer style={{ background: COLORS.ink, color: "#B9C6DE", padding: "48px 40px 0" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.4fr 1fr 1fr 1.3fr",
-            gap: 32,
-            maxWidth: 1200,
-            margin: "0 auto",
-            paddingBottom: 40,
-          }}
-        >
-          <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-              <div
-                style={{
-                  width: 36,
-                  height: 36,
-                  background: "#fff",
-                  color: COLORS.navy,
-                  borderRadius: 8,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontWeight: 700,
-                  fontSize: 14,
-                }}
-              >
-                22
-              </div>
-              <div style={{ lineHeight: 1.1 }}>
-                <div style={{ fontWeight: 700, fontSize: 15, color: "#fff" }}>22 YARDS</div>
-                <div style={{ fontSize: 9, letterSpacing: 2, color: COLORS.yellow }}>DALLAS</div>
-              </div>
-            </div>
-            <p style={{ fontSize: 13, lineHeight: 1.7, color: "#9DAEC9", maxWidth: 280 }}>
-              22 Yards Columbus — your premier destination for indoor cricket excellence.
-            </p>
-            <div style={{ fontSize: 13, lineHeight: 2, marginTop: 12, color: "#9DAEC9" }}>
-              <div>✉️ contact@22yardsdallas.com</div>
-              <div>📞 +1 614-984-1453</div>
-              <div>📍 2601 E State Hwy 121 Business, Lewisville, TX 75056</div>
-            </div>
-          </div>
-
-          <FooterCol title="Quick links" links={quickLinks} accent={COLORS.yellow} />
-          <FooterCol title="Legal" links={legalLinks} accent={COLORS.yellow} />
-
-          <div>
-            <div style={{ fontSize: 15, fontWeight: 700, color: COLORS.yellow, marginBottom: 14 }}>
-              Subscribe newsletter
-            </div>
-            <p style={{ fontSize: 13, color: "#9DAEC9", marginBottom: 14, lineHeight: 1.6 }}>
-              Sign up for our newsletter to get updates, news, insights, or promotions.
-            </p>
-            <div style={{ display: "flex" }}>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                style={{
-                  flex: 1,
-                  padding: "10px 12px",
-                  borderRadius: "8px 0 0 8px",
-                  border: "none",
-                  fontSize: 13,
-                }}
-              />
-              <button
-                className="cu-btn-yellow"
-                style={{
-                  background: COLORS.yellow,
-                  border: "none",
-                  borderRadius: "0 8px 8px 0",
-                  padding: "0 16px",
-                  fontWeight: 700,
-                  fontSize: 12,
-                  color: COLORS.navyDark,
-                  cursor: "pointer",
-                }}
-              >
-                SIGN UP
-              </button>
-            </div>
-            <div style={{ display: "flex", gap: 10, marginTop: 18 }}>
-              <SocialIcon>f</SocialIcon>
-              <SocialIcon>◎</SocialIcon>
-            </div>
-          </div>
-        </div>
-
-        <div
-          style={{
-            borderTop: "1px solid rgba(255,255,255,0.08)",
-            padding: "18px 0",
-            display: "flex",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: 10,
-            maxWidth: 1200,
-            margin: "0 auto",
-            fontSize: 12,
-            color: "#7F91B0",
-          }}
-        >
-          <div>Managed by 22 Yards Columbus</div>
-          <div>© 2026 22 Yards Columbus. All rights reserved.</div>
-        </div>
-      </footer>}
     </div>
   );
 }
@@ -490,20 +374,12 @@ function EventSection({ sec }) {
   const imageFirst = sec.imageSide === "left";
 
   const imageBlock = (
-    <div
-      style={{
-        position: "relative",
-        minHeight: 340,
-        borderRadius: 16,
-        overflow: "hidden",
-        background: COLORS.navy,
-      }}
-    >
+    <div className="relative min-h-[250px] sm:min-h-[340px] rounded-2xl overflow-hidden bg-[#0A5DA6]">
       <img
         src={sec.image}
         alt={sec.imageAlt}
         loading="lazy"
-        style={{ width: "100%", height: "100%", minHeight: 340, objectFit: "cover", display: "block" }}
+        style={{ width: "100%", height: "100%", minHeight: 250, objectFit: "cover", display: "block" }}
       />
       <div
         aria-hidden="true"
@@ -513,14 +389,7 @@ function EventSection({ sec }) {
   );
 
   const textBlock = (
-    <div
-      style={{
-        background: "#fff",
-        border: `1px solid ${COLORS.border}`,
-        borderRadius: 16,
-        padding: "36px 38px",
-      }}
-    >
+    <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-9">
       <h2
         className="display-font"
         style={{ fontSize: 30, fontWeight: 700, color: COLORS.yellowDark, margin: 0, letterSpacing: 0.3 }}
@@ -545,17 +414,8 @@ function EventSection({ sec }) {
   );
 
   return (
-    <div style={{ background: bgColor, padding: "64px 40px" }}>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 44,
-          maxWidth: 1160,
-          margin: "0 auto",
-          alignItems: "center",
-        }}
-      >
+    <div style={{ background: bgColor }} className="px-5 py-10 md:px-10 md:py-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-[1160px] mx-auto items-center">
         {imageFirst ? (
           <>
             {imageBlock}
@@ -641,12 +501,7 @@ function RegisterCard() {
 
   return (
     <div
-      style={{
-        background: "#fff",
-        borderRadius: 16,
-        padding: "32px 34px",
-        border: `1px solid ${COLORS.border}`,
-      }}
+      className="p-5 sm:p-8 bg-white rounded-2xl border border-slate-200"
     >
       {submitted ? (
         <div style={{ padding: "20px", borderRadius: 12, background: "#ECFDF5", border: "1px solid #10B981", color: "#065F46", fontSize: 14, textAlign: "center", fontWeight: 600 }}>
@@ -654,7 +509,7 @@ function RegisterCard() {
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field label="First name *">
               <input required value={form.firstName} onChange={handleChange("firstName")} type="text" placeholder="First name" style={inputStyle} />
             </Field>
@@ -662,7 +517,7 @@ function RegisterCard() {
               <input required value={form.lastName} onChange={handleChange("lastName")} type="text" placeholder="Last name" style={inputStyle} />
             </Field>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field label="Email *">
               <input required value={form.email} onChange={handleChange("email")} type="email" placeholder="you@example.com" style={inputStyle} />
             </Field>
@@ -670,7 +525,7 @@ function RegisterCard() {
               <input value={form.phone} onChange={handleChange("phone")} type="tel" placeholder="(614) 984-1453" style={inputStyle} />
             </Field>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field label="Gender">
               <select value={form.gender} onChange={handleChange("gender")} style={inputStyle}>
                 <option>Male</option>

@@ -160,16 +160,7 @@ export default function ContactUs() {
       </div>
 
       {/* Contact info + form */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "minmax(260px, 360px) 1fr",
-          gap: 56,
-          padding: "64px 40px 60px",
-          maxWidth: 1200,
-          margin: "0 auto",
-        }}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(260px,360px)_1fr] gap-8 md:gap-14 px-5 py-10 md:px-10 md:py-16 max-w-[1200px] mx-auto">
         {/* Info column */}
         <div>
           <InfoItem icon="📍" label="ADDRESS">
@@ -188,44 +179,43 @@ export default function ContactUs() {
             7:00 AM – 11:00 PM daily
           </InfoItem>
 
-          <div style={{ display: "flex", gap: 12, marginTop: 24, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 10, marginTop: 24, flexWrap: "wrap", alignItems: "center" }}>
             <a
-              href="tel:+16149841453"
-              className="cu-btn-yellow"
+              href="tel:+17134982155"
+              className="cu-btn-yellow whitespace-nowrap"
               style={{
                 background: COLORS.yellow,
                 border: "none",
                 borderRadius: 999,
-                padding: "12px 24px",
+                padding: "10px 16px",
                 fontWeight: 700,
-                fontSize: 14,
+                fontSize: 13,
                 color: COLORS.navyDark,
                 cursor: "pointer",
                 textDecoration: "none",
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 6,
+                gap: 5,
               }}
             >
               📞 CALL NOW
             </a>
             <a
               href="https://www.google.com/maps/place/9525+OH-161,+Plain+City,+OH+43064,+USA/@40.1039382,-83.2207801,17z/data=!3m1!4b1!4m6!3m5!1s0x88389531a698b12b:0x8a55252cf1556c4!8m2!3d40.1039382!4d-83.2207801!16s%2Fg%2F11sb39l3wv"
-              target="_blank"
-              rel="noreferrer"
+              className="whitespace-nowrap"
               style={{
                 background: "#fff",
                 border: `1px solid ${COLORS.border}`,
                 borderRadius: 999,
-                padding: "12px 24px",
+                padding: "10px 16px",
                 fontWeight: 700,
-                fontSize: 14,
+                fontSize: 13,
                 color: COLORS.navy,
                 cursor: "pointer",
                 textDecoration: "none",
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 6,
+                gap: 5,
               }}
             >
               📍 GET DIRECTIONS
@@ -234,14 +224,7 @@ export default function ContactUs() {
         </div>
 
         {/* Form column */}
-        <div
-          style={{
-            border: `1px solid ${COLORS.border}`,
-            borderRadius: 16,
-            padding: "34px 36px",
-            boxShadow: "0 1px 2px rgba(15,23,42,0.03)",
-          }}
-        >
+        <div className="border border-slate-200 rounded-2xl p-5 sm:p-9 shadow-sm">
           <h2 className="display-font" style={{ color: COLORS.navy, fontSize: 30, margin: 0, letterSpacing: 0.3 }}>
             SEND US A MESSAGE
           </h2>
@@ -255,7 +238,7 @@ export default function ContactUs() {
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field label="FULL NAME *">
                   <input
                     type="text"

@@ -92,8 +92,8 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
 
         {shouldShowNavLinks && (
           <>
-            {/* Desktop Nav Links */}
-            <div style={{ display: "flex", gap: 22, flexWrap: "wrap" }} className="hidden lg:flex">
+            {/* Nav Links & Book Now Button */}
+            <div style={{ display: "flex", gap: 22, flexWrap: "wrap", alignItems: "center" }} className="hidden lg:flex">
               {navLinks.map((link) => {
                 const href = link === "HOME" ? "#" : link === "ABOUT US" ? "#about" : link === "COACHING" ? "#coaching" : link === "LANE RENTALS" ? "#lane-rentals" : link === "SPECIAL EVENTS" ? "#special-events" : link === "SUMMER CAMP" ? "#summer-camp" : link === "CONTACT US" ? "#contact" : link === "REGISTRATION" ? "#registration" : "#";
                 const isActive = activePage.toUpperCase() === link;
@@ -101,8 +101,6 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
                   <a
                     key={link}
                     href={href}
-                    target={link === "SUMMER CAMP" ? "_blank" : undefined}
-                    rel={link === "SUMMER CAMP" ? "noreferrer" : undefined}
                     className={`cu-navlink ${isActive ? "active" : ""}`}
                     style={{
                       color: "#0A5DA6",
@@ -113,10 +111,7 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
                   </a>
                 );
               })}
-            </div>
 
-            {/* Book Now Action Button */}
-            <div className="hidden lg:block">
               <a
                 href="#book"
                 className="cu-btn-yellow"
@@ -124,13 +119,16 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
                   background: "#F6C915",
                   border: "none",
                   borderRadius: 999,
-                  padding: "10px 22px",
+                  padding: "8px 16px",
                   fontWeight: 700,
-                  fontSize: 13,
+                  fontSize: 12,
                   color: "#053a68",
                   cursor: "pointer",
                   textDecoration: "none",
-                  display: "inline-block",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 4,
+                  whiteSpace: "nowrap",
                 }}
               >
                 📅 BOOK NOW
@@ -139,7 +137,7 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
 
             {/* Mobile Toggle */}
             <button
-              className="lg:hidden p-2 text-[#0A5DA6] font-bold cursor-pointer"
+              className="lg:hidden p-2 text-[#0A5DA6] font-bold cursor-pointer text-lg"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
             >
@@ -158,8 +156,6 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
               <a
                 key={link}
                 href={href}
-                target={link === "SUMMER CAMP" ? "_blank" : undefined}
-                rel={link === "SUMMER CAMP" ? "noreferrer" : undefined}
                 className="text-sm font-bold uppercase text-[#0A5DA6] no-underline py-1"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >

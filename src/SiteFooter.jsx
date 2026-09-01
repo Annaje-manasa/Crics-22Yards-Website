@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const exploreLinks = [
   "Home",
   "About Us",
@@ -31,6 +33,45 @@ const footerLinkStyle = { color: "#9DB4DA", textDecoration: "none" };
 const mapUrl = "https://www.google.com/maps/place/9525+OH-161,+Plain+City,+OH+43064,+USA/@40.1039382,-83.2207801,17z/data=!3m1!4b1!4m6!3m5!1s0x88389531a698b12b:0x8a55252cf1556c4!8m2!3d40.1039382!4d-83.2207801!16s%2Fg%2F11sb39l3wv?entry=tts&g_ep=EgoyMDI2MDQxMi4wIPu8ASoASAFQAw%3D%3D&skid=1c5e4a3a-e2b5-4272-8b8a-7341824c1ab6";
 const facebookUrl = "https://www.facebook.com/people/Crics-22Yards-Columbus/61577612886478/";
 const instagramUrl = "https://www.instagram.com/crics22yardscolumbus?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D";
+
+function NewsletterForm() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!email) return;
+    setSubscribed(true);
+    setEmail("");
+    setTimeout(() => setSubscribed(false), 5000);
+  };
+
+  return (
+    <div>
+      <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 1.5, color: "#F6C915", marginBottom: 14 }}>NEWSLETTER</div>
+      <p style={{ fontSize: 13, color: "#AEC3E6", marginBottom: 14 }}>Sign up for updates, events, and academy news.</p>
+      {subscribed ? (
+        <div style={{ padding: "8px 12px", borderRadius: 8, background: "rgba(16,185,129,0.2)", border: "1px solid #10B981", color: "#6EE7B7", fontSize: 12, fontWeight: 600 }}>
+          ✓ Thank you for subscribing to 22 Yards Columbus updates!
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="flex w-full max-w-[320px]">
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter email"
+            className="flex-1 min-w-0 px-2.5 py-2 rounded-l-lg border-none text-xs text-gray-800 bg-white outline-none"
+          />
+          <button type="submit" className="bg-[#F6C915] border-none rounded-r-lg px-3 font-bold text-xs text-[#053A68] cursor-pointer whitespace-nowrap hover:bg-[#E0B60F] transition-colors">
+            SIGN UP
+          </button>
+        </form>
+      )}
+    </div>
+  );
+}
 
 function FooterCol({ title, links }) {
   return (
@@ -75,9 +116,9 @@ function SocialIcon({ href, children }) {
 
 export default function SiteFooter() {
   return (
-    <footer style={{ background: "#053A68", color: "#CBD9EF", padding: "48px 40px 0" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1.3fr", gap: 32, maxWidth: 1200, margin: "0 auto", paddingBottom: 40 }}>
-        <div>
+    <footer className="bg-[#053A68] text-[#CBD9EF] px-5 sm:px-10 pt-10 sm:pt-12 pb-0 w-full overflow-hidden">
+      <div className="grid grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.3fr] gap-x-6 gap-y-8 max-w-[1200px] mx-auto pb-10">
+        <div className="col-span-1">
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
             <div style={{ width: 36, height: 36, background: "#0A5DA6", color: "#F6C915", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14 }}>22</div>
             <div style={{ lineHeight: 1.1 }}>
@@ -85,11 +126,11 @@ export default function SiteFooter() {
               <div style={{ fontSize: 9, letterSpacing: 2, color: "#F6C915" }}>COLUMBUS</div>
             </div>
           </div>
-          <p style={{ fontSize: 14, lineHeight: 1.7, color: "#AEC3E6", maxWidth: 280 }}>
+          <p style={{ fontSize: 13, lineHeight: 1.6, color: "#AEC3E6", maxWidth: 280 }}>
             Professional indoor cricket training, lane rentals, and high-performance coaching built for players at every stage.
           </p>
-          <div style={{ fontSize: 14, lineHeight: 2, marginTop: 12, color: "#AEC3E6" }}>
-            <a href={mapUrl} target="_blank" rel="noreferrer" style={{ color: "#AEC3E6", textDecoration: "none", display: "block" }}>
+          <div style={{ fontSize: 13, lineHeight: 1.9, marginTop: 12, color: "#AEC3E6" }}>
+            <a href={mapUrl} style={{ color: "#AEC3E6", textDecoration: "none", display: "block" }}>
               📍 9525 OH-161, Plain City, OH 43064
             </a>
             <div>📞 (713) 498 2155</div>
@@ -100,16 +141,16 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <FooterCol title="EXPLORE" links={exploreLinks} />
-        <FooterCol title="MORE" links={moreLinks} />
+        <div className="col-span-1">
+          <FooterCol title="EXPLORE" links={exploreLinks} />
+        </div>
 
-        <div>
-          <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 1.5, color: "#F6C915", marginBottom: 14 }}>NEWSLETTER</div>
-          <p style={{ fontSize: 14, color: "#AEC3E6", marginBottom: 14 }}>Sign up for updates, events, and academy news.</p>
-          <div style={{ display: "flex" }}>
-            <input placeholder="Enter your email" style={{ flex: 1, padding: "10px 12px", borderRadius: "8px 0 0 8px", border: "none", fontSize: 13 }} />
-            <button style={{ background: "#F6C915", border: "none", borderRadius: "0 8px 8px 0", padding: "0 16px", fontWeight: 700, fontSize: 12, color: "#053A68", cursor: "pointer" }}>SIGN UP</button>
-          </div>
+        <div className="col-span-1">
+          <FooterCol title="MORE" links={moreLinks} />
+        </div>
+
+        <div className="col-span-1">
+          <NewsletterForm />
           <div style={{ display: "flex", gap: 10, marginTop: 18 }}>
             <SocialIcon href={facebookUrl}>f</SocialIcon>
             <SocialIcon href={instagramUrl}>◎</SocialIcon>
@@ -117,14 +158,14 @@ export default function SiteFooter() {
         </div>
       </div>
 
-      <div style={{ borderTop: "1px solid rgba(255,255,255,0.12)", padding: "18px 0", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 10, maxWidth: 1200, margin: "0 auto", fontSize: 12, color: "#9DB4DA" }}>
-        <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
+      <div className="border-t border-white/12 py-5 flex flex-col sm:flex-row justify-between items-center gap-4 max-w-[1200px] mx-auto text-xs text-[#9DB4DA]">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-5">
           <a href="#" style={footerLinkStyle}>Privacy Policy</a>
           <a href="#" style={footerLinkStyle}>Terms &amp; Conditions</a>
           <a href="#" style={footerLinkStyle}>Disclaimer</a>
           <a href="#" style={footerLinkStyle}>Waiver &amp; Cancellations</a>
         </div>
-        <div style={{ textAlign: "right" }}>
+        <div className="text-center sm:text-right">
           <div>© 2026 22 Yards Dallas. All rights reserved.</div>
           <div>Designed and managed by Margam360</div>
         </div>
