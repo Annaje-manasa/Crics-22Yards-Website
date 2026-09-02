@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import SiteFooter from "./SiteFooter";
+import SiteUtilityBar from "./SiteUtilityBar";
+import skaLogo from "./assets/SKA FINAL LOGO TO USE.png";
 
 const NAVY = "#0A5DA6";
 const NAVY_DEEPER = "#053a68";
@@ -61,16 +63,11 @@ export default function RegistrationFormPage() {
         .ty-body { font-family: 'Inter', sans-serif; }
       `}</style>
 
-      {/* Clean Branding Bar (No Top Utility Bar or Nav Links) */}
-      <div className="bg-white py-4 px-8 flex items-center justify-between border-b border-gray-200">
-        <a href="#" className="flex items-center gap-2.5 text-none no-underline">
-          <div className="w-10 h-10 bg-[#0A5DA6] text-[#F6C915] rounded-lg flex items-center justify-center font-extrabold text-base ty-display">
-            22
-          </div>
-          <div className="leading-tight">
-            <div className="font-bold text-base text-[#0A5DA6] tracking-wide ty-display">CRICS 22 YARDS</div>
-            <div className="text-[10px] tracking-[0.2em] text-[#9AAEC0] font-semibold ty-body">COLUMBUS</div>
-          </div>
+      {/* Top Utility Bar & Clean Branding Bar */}
+      <SiteUtilityBar />
+      <div className="w-full flex items-center justify-between px-3 sm:px-6 lg:px-10 border-b border-gray-200 bg-white box-border flex-nowrap" style={{ paddingTop: '4px', paddingBottom: '5px' }}>
+        <a href="#" className="flex items-center flex-shrink-0 text-none no-underline">
+          <img src={skaLogo} alt="CRICS 22 YARDS COLUMBUS" className="h-10 sm:h-12 lg:h-[56px] w-auto object-contain max-h-[58px]" />
         </a>
       </div>
 

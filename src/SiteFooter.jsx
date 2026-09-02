@@ -1,4 +1,5 @@
 import { useState } from "react";
+import skaLogo from "./assets/SKA FINAL LOGO TO USE.png";
 
 const exploreLinks = [
   "Home",
@@ -117,11 +118,9 @@ export default function SiteFooter() {
     <footer className="bg-[#053A68] text-[#CBD9EF] px-5 sm:px-10 pt-10 sm:pt-12 pb-0 w-full overflow-hidden">
       <div className="grid grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.3fr] gap-x-6 gap-y-8 max-w-[1200px] mx-auto pb-10">
         <div className="col-span-1">
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-            <div style={{ width: 36, height: 36, background: "#0A5DA6", color: "#F6C915", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14 }}>22</div>
-            <div style={{ lineHeight: 1.1 }}>
-              <div style={{ fontWeight: 700, fontSize: 15, color: "#fff" }}>CRICS 22 YARDS</div>
-              <div style={{ fontSize: 9, letterSpacing: 2, color: "#F6C915" }}>COLUMBUS</div>
+          <div style={{ display: "flex", alignItems: "center", marginBottom: 16 }}>
+            <div className="bg-white p-1 px-2 rounded-lg inline-flex items-center justify-center">
+              <img src={skaLogo} alt="CRICS 22 YARDS COLUMBUS" className="h-10 sm:h-12 lg:h-[56px] w-auto object-contain" />
             </div>
           </div>
           <p style={{ fontSize: 13, lineHeight: 1.6, color: "#AEC3E6", maxWidth: 280 }}>

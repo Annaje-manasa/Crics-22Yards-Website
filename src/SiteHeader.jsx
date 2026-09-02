@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SiteUtilityBar from "./SiteUtilityBar";
+import skaLogo from "./assets/SKA FINAL LOGO TO USE.png";
 
 const navLinks = [
   "HOME",
@@ -50,23 +51,10 @@ export default function SiteHeader({ activePage = "", showNavLinks }) {
       <SiteUtilityBar />
 
       {/* Main navigation header */}
-      <div className="w-full flex items-center justify-between px-3 py-2 sm:px-6 lg:px-10 lg:py-4 border-b border-gray-200 bg-white box-border flex-nowrap">
+      <div className="w-full flex items-center justify-between px-3 sm:px-6 lg:px-10 border-b border-gray-200 bg-white box-border flex-nowrap" style={{ paddingTop: '4px', paddingBottom: '5px' }}>
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 lg:gap-2.5 flex-shrink-0 text-none no-underline">
-          <div
-            className="w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center font-extrabold text-sm lg:text-base text-[#F6C915] bg-[#0A5DA6] rounded-lg"
-            style={{
-              fontFamily: "'Inter', sans-serif",
-            }}
-          >
-            22
-          </div>
-          <div style={{ lineHeight: 1.1 }}>
-            <div className="font-bold text-[14px] lg:text-[17px] text-[#0A5DA6] tracking-wide" style={{ fontFamily: "'Inter', sans-serif" }}>
-              CRICS 22 YARDS
-            </div>
-            <div className="text-[8px] lg:text-[10px] tracking-[0.2em] text-[#9AAEC0] font-semibold" style={{ fontFamily: "'Inter', sans-serif" }}>COLUMBUS</div>
-          </div>
+        <a href="#" className="flex items-center flex-shrink-0 text-none no-underline">
+          <img src={skaLogo} alt="CRICS 22 YARDS COLUMBUS" className="h-10 sm:h-12 lg:h-[56px] w-auto object-contain max-h-[58px]" />
         </a>
 
         {shouldShowNavLinks && (
